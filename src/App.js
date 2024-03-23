@@ -115,6 +115,7 @@ function App() {
         >
           <input
             type="text"
+            maxLength={4}
             value={newCircleName}
             onChange={(e) => setNewCircleName(e.target.value)}
             placeholder="Nome del cerchio"
@@ -122,13 +123,13 @@ function App() {
           <label>
             startX:
             <input
-              max={900}
+              max={1200}
               min={0}
               type="number"
               value={newCircleStartX}
               onChange={(e) =>
                 setNewCircleStartX(
-                  Math.min(900, Math.max(0, Number(e.target.value)))
+                  Math.min(1200, Math.max(0, Number(e.target.value)))
                 )
               }
             />
@@ -136,13 +137,13 @@ function App() {
           <label>
             startY:
             <input
-              max={900}
+              max={1200}
               min={0}
               type="number"
               value={newCircleStartY}
               onChange={(e) =>
                 setNewCircleStartY(
-                  Math.min(900, Math.max(0, Number(e.target.value)))
+                  Math.min(1200, Math.max(0, Number(e.target.value)))
                 )
               }
             />
@@ -151,20 +152,20 @@ function App() {
           {circles.map((circle) => (
             <div key={circle.id}>
               <h3>
-                Cerchio {circle.id}{" "}
+                Cerchio {circle.name}
                 <button onClick={() => removeCircle(circle.id)}>Rimuovi</button>
               </h3>
               <label>
                 startX:
                 <input
-                  max={900}
+                  max={1200}
                   min={0}
                   type="number"
                   value={circle.startX}
                   onChange={(e) =>
                     moveCircle(
                       circle.id,
-                      Math.min(900, Math.max(0, Number(e.target.value))),
+                      Math.min(1200, Math.max(0, Number(e.target.value))),
                       circle.startY,
                       circle.endX,
                       circle.endY
@@ -193,7 +194,7 @@ function App() {
               <label>
                 endX:
                 <input
-                  max={900}
+                  max={1200}
                   min={0}
                   type="number"
                   value={circle.endX}
@@ -202,7 +203,7 @@ function App() {
                       circle.id,
                       circle.startX,
                       circle.startY,
-                      Math.min(900, Math.max(0, Number(e.target.value))),
+                      Math.min(1200, Math.max(0, Number(e.target.value))),
                       circle.endY
                     )
                   }
